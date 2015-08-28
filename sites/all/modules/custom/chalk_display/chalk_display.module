@@ -5,6 +5,8 @@
  * TODO: Enter file description here.
  */
 
+module_load_include('inc', 'chalk_display', 'chalk_display.blocks');
+
 /**
  * Implements hook_menu().
  */
@@ -24,6 +26,11 @@ function chalk_display_menu() {
  * Implements hook_block_info().
  */
 function chalk_display_block_info() {
+  // Social medias icons
+  $blocks['chalk_social'] = array(
+    'info' => t('Chalk social'),
+    'cache' => DRUPAL_NO_CACHE
+  );
   // This example comes from node.module.
   $blocks['syndicate'] = array(
     'info' => t('Syndicate'),
@@ -46,6 +53,11 @@ function chalk_display_block_view($delta = '') {
   $block = array();
 
   switch ($delta) {
+    case 'chalk_social':
+      $block['subject'] = t('Join us');
+      $block['content'] = _chalk_display_social();
+      break;
+
     case 'syndicate':
       $block['subject'] = t('Syndicate');
       $block['content'] = array(
