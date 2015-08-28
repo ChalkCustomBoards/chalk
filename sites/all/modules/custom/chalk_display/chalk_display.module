@@ -1,0 +1,142 @@
+<?php
+
+/**
+ * @file chalk_display.module
+ * TODO: Enter file description here.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function chalk_display_menu() {
+  $items = array();
+  
+  $items['admin/config/chalk_display'] = array(
+    'title' => 'Administer Chalk Display',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('chalk_display_settings_form'),
+    'access arguments' => array('administer chalk_display'),
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function chalk_display_block_info() {
+  // This example comes from node.module.
+  $blocks['syndicate'] = array(
+    'info' => t('Syndicate'),
+    'cache' => DRUPAL_NO_CACHE
+  );
+
+  $blocks['recent'] = array(
+    'info' => t('Recent content'),
+    // DRUPAL_CACHE_PER_ROLE will be assumed.
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function chalk_display_block_view($delta = '') {
+  // This example is adapted from node.module.
+  $block = array();
+
+  switch ($delta) {
+    case 'syndicate':
+      $block['subject'] = t('Syndicate');
+      $block['content'] = array(
+        '#theme' => 'feed_icon',
+        '#url' => 'rss.xml',
+        '#title' => t('Syndicate'),
+      );
+      break;
+
+    case 'recent':
+      if (user_access('access content')) {
+        $block['subject'] = t('Recent content');
+        if ($nodes = node_get_recent(variable_get('node_recent_block_count', 10))) {
+          $block['content'] = array(
+            '#theme' => 'node_recent_block',
+            '#nodes' => $nodes,
+          );
+        } else {
+          $block['content'] = t('No content available.');
+        }
+      }
+      break;
+  }
+  return $block;
+}
+
+/**
+ * Implements hook_views_api().
+ */
+function chalk_display_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'example') . '/includes/views',
+    'template path' => drupal_get_path('module', 'example') . '/themes',
+  );
+}
+
+/**
+ * Implements hook_block_configure().
+ */
+function chalk_display_block_configure($delta = '') {
+  // This example comes from node.module.
+  $form = array();
+  if ($delta == 'recent') {
+    $form['node_recent_block_count'] = array(
+      '#type' => 'select',
+      '#title' => t('Number of recent content items to display'),
+      '#default_value' => variable_get('node_recent_block_count', 10),
+      '#options' => drupal_map_assoc(array(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 25, 30)),
+    );
+  }
+  return $form;
+}
+
+/**
+ * Implements hook_block_save().
+ */
+function chalk_display_block_save($delta = '', $edit = array()) {
+  // This example comes from node.module.
+  if ($delta == 'recent') {
+    variable_set('node_recent_block_count', $edit['node_recent_block_count']);
+  }
+}
+
+/**
+ * Form builder.
+ */
+function chalk_display_settings_form($form, &$form_state) {
+  $form['chalk_display_variable_foo'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Foo'),
+    '#default_value' => variable_get('chalk_display_variable_foo', 42),
+    '#required' => TRUE,
+  );
+  
+  // TODO! You probably don't need validation or submit handlers if using system_settings_form().
+  return system_settings_form($form);
+}
+
+/**
+ * Form validate handler.
+ */
+function chalk_display_settings_form_validate($form, &$form_state) {
+  if ($form_state['values']['element'] != 'hello') {
+    form_set_error('element', t('Please say hello?'));
+  }
+}
+
+/**
+ * Form submit handler.
+ */
+function chalk_display_settings_form_submit($form, &$form_state) {
+
+}

@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @file 
+ * Contains tests for the Chalk Display module.
+ */
+
+/**
+ * Test case.
+ */
+class ChalkDisplayTestCase extends DrupalWebTestCase {
+
+  /**
+   * Implements getInfo().
+   */
+  public static function getInfo() {
+    return array(
+      'name' => t('Chalk Display tests'),
+      'description' => t('TODO: write me.'),
+      'group' => t('Chalk Display'),
+    );
+  }
+
+  /**
+   * Implements setUp().
+   */
+  function setUp() {
+    // Call the parent with an array of modules to enable for the test.
+    parent::setUp(array('chalk_display'));
+
+    // TODO: perform additional setup tasks here if required.
+  }
+
+  /**
+   * Test the module's functionality.
+   */
+  function testTodoChangeThisName() {
+    // TODO: write test!
+  }
+
+}

@@ -1,0 +1,6 @@
+name = Chalk Display
+description = Frontend custom code
+dependencies[] = views
+package = Chalk
+core = 7.x
+files[] = tests/chalk_display.test
