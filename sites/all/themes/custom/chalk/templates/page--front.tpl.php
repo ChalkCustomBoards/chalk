@@ -2,7 +2,7 @@
         <div id="page-wrapper">
 
           <!-- Header -->
-          <?php // @todo get menu ?>
+          <?php // @todo get menu, move in block ?>
             <header id="header" class="alt">
               <h1><a href="index.html"><?php print $site_name; ?></a></h1>
               <nav id="nav">
@@ -100,6 +100,7 @@ Get to know the CHALK artists and be all set for their next custom boards.</p>
             </section>
 
           <!-- Footer -->
+          <?php // @todo move in block ?>
             <footer id="footer">
               <ul class="icons">
                 <li><a href="https://www.facebook.com/pages/Chalk-Custom-Board-Project/837413683020006" class="icon fa-facebook"><span class="label">Facebook</span></a></li>

@@ -160,7 +160,7 @@ function _chalk_display_events_teaser() {
       $description = truncate_utf8($n->body['und'][0]['safe_value'], 300, TRUE, TRUE);
     }
     $date = format_date(strtotime($n->field_date['und'][0]['value']), 'medium'); // @todo from to
-    $location = $n->field_event_location['und'][0]['locality'] . '('.$n->field_event_location['und'][0]['country'].')';
+    $location = $n->field_event_location['und'][0]['locality'] . ' ['.$n->field_event_location['und'][0]['country'].']';
     $output .= '
     <li class="icon">
 			<h3>'.$title.'</h3>

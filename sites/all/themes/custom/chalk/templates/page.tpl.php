@@ -10,85 +10,66 @@
 
 <?php print $mothership_poorthemers_helper; ?>
 
-<header role="banner">
-  <div class="siteinfo">
-    <?php if ($logo): ?>
-      <figure>
-      <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home">
-        <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-      </a>
-      </figure>
-    <?php endif; ?>
+<!-- Page Wrapper -->
+			<div id="page-wrapper">
 
-    <?php if($site_name OR $site_slogan ): ?>
-    <hgroup>
-      <?php if($site_name): ?>
-        <h1><?php print $site_name; ?></h1>
-      <?php endif; ?>
-      <?php if ($site_slogan): ?>
-        <h2><?php print $site_slogan; ?></h2>
-      <?php endif; ?>
-    </hgroup>
-    <?php endif; ?>
-  </div>
+				<!-- Header -->
+					<header id="header" class="alt">
+              <h1><a href="index.html"><?php print $site_name; ?></a></h1>
+              <nav id="nav">
+                <ul>
+                  <li class="special">
+                    <a href="#menu" class="menuToggle"><span>Menu</span></a>
+                    <div id="menu">
+                      <ul>
+                        <li><a href="chalk-custom-board-project">Chalk</a></li>
+                        <li><a href="get-involved">Get involved !</a></li>
+                        <li><a href="artists">Artists</a></li>
+                        <li><a href="events">Events</a></li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </nav>
+            </header>
 
-  <?php if($page['header']): ?>
-    <div class="header-region">
-      <?php print render($page['header']); ?>
-    </div>
-  <?php endif; ?>
-
-</header>
-
-<div class="page">
-
-  <div role="main" id="main-content">
-    <?php print render($title_prefix); ?>
-    <?php if ($title): ?>
-      <h1><?php print $title; ?></h1>
-    <?php endif; ?>
-    <?php print render($title_suffix); ?>
-
-    <?php print $breadcrumb; ?>
-
-    <?php if ($action_links): ?>
-      <ul class="action-links"><?php print render($action_links); ?></ul>
-    <?php endif; ?>
-
-    <?php if (isset($tabs['#primary'][0]) || isset($tabs['#secondary'][0])): ?>
-      <nav class="tabs"><?php print render($tabs); ?></nav>
-    <?php endif; ?>
-
-    <?php if($page['highlighted'] OR $messages){ ?>
-      <div class="drupal-messages">
-      <?php print render($page['highlighted']); ?>
-      <?php print $messages; ?>
-      </div>
-    <?php } ?>
+				<!-- Main -->
+					<article id="main">
+						<header>
+							<h2><?php print $title; ?></h2>
+							<p></p>
+						</header>
+						<section class="wrapper style5">
+							<div class="inner">
+                  <?php if($page['highlighted'] OR $messages){ ?>
+                    <div class="drupal-messages">
+                    <?php print render($page['highlighted']); ?>
+                    <?php print $messages; ?>
+                    </div>
+                  <?php } ?>
 
 
-    <?php print render($page['content_pre']); ?>
+                  <?php print render($page['content_pre']); ?>
 
-    <?php print render($page['content']); ?>
+                  <?php print render($page['content']); ?>
 
-    <?php print render($page['content_post']); ?>
+                  <?php print render($page['content_post']); ?>
+							</div>
+						</section>
+					</article>
 
-  </div><!-- /main -->
+				<!-- Footer -->
+					<footer id="footer">
+              <ul class="icons">
+                <li><a href="https://www.facebook.com/pages/Chalk-Custom-Board-Project/837413683020006" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                <li><a href="https://ello.co/chalk_collective" class="icon fa-ello"><span class="label">Ello</span></a></li>
+                <li><a href="https://instagram.com/chalkcustomboard/" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="https://www.pinterest.com/chalkcustom/" class="icon fa-pinteres"><span class="label">Pinterest</span></a></li>
+                <li><a href="https://www.youtube.com/channel/UCkzRQhwlf39InmYu8WsRRRA" class="icon fa-youtube"><span class="label">YouTube</span></a></li>
+              </ul>
+              <ul class="copyright">
+                <li>&copy; Chalk Custom Boards</li><li><a href="https://en.wikipedia.org/wiki/Vulcan_salute">Live long and prosper</a></li>
+              </ul>
+            </footer>
 
-  <?php if ($page['sidebar_first']): ?>
-    <div class="sidebar-first">
-    <?php print render($page['sidebar_first']); ?>
-    </div>
-  <?php endif; ?>
-
-  <?php if ($page['sidebar_second']): ?>
-    <div class="sidebar-second">
-      <?php print render($page['sidebar_second']); ?>
-    </div>
-  <?php endif; ?>
-</div><!-- /page -->
-
-<footer role="contentinfo">
-  <?php print render($page['footer']); ?>
-</footer>
-
+			</div>
