@@ -137,8 +137,10 @@ function _chalk_display_events_teaser() {
 	$query->entityCondition('entity_type', 'node')
 		->entityCondition('bundle', 'event')
 		->propertyCondition('status', NODE_PUBLISHED)
+    //http://drupal.stackexchange.com/questions/9276/how-to-use-entityfieldquery-with-dates
+    //->fieldCondition('field_date', 'value', 'NOW()', '>')
+    ->fieldOrderBy('field_date', 'value', 'ASC')
 		->range(0, 10);
-  // @todo orderBy
 
 	$result = $query->execute();
 
@@ -164,8 +166,8 @@ function _chalk_display_events_teaser() {
 			<h3>'.$title.'</h3>
       <h4>'.$date. '<br>'.$location.'</h4>'
       .$description.
-			'<p>'.l(t("Read more"), "node/".$n->nid).'</p>
-		</li>';
+			//'<p>'.l(t("Read more"), "node/".$n->nid).'</p>
+		'</li>';
   }
   $output .= '</ul>';
 
