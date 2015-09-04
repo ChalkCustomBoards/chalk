@@ -31,6 +31,19 @@ function chalk_display_block_info() {
     'info' => t('Chalk social'),
     'cache' => DRUPAL_NO_CACHE
   );
+  $blocks['chalk_main_menu'] = array(
+    'info' => t('Chalk main menu'),
+    'cache' => DRUPAL_NO_CACHE
+  );
+  $blocks['chalk_artists_teaser'] = array(
+    'info' => t('Chalk artists teaser'),
+    'cache' => DRUPAL_NO_CACHE
+  );
+  $blocks['chalk_intro'] = array(
+    'info' => t('Chalk intro'),
+    'cache' => DRUPAL_NO_CACHE
+  );
+
   // This example comes from node.module.
   $blocks['syndicate'] = array(
     'info' => t('Syndicate'),
@@ -57,7 +70,15 @@ function chalk_display_block_view($delta = '') {
       $block['subject'] = t('Join us');
       $block['content'] = _chalk_display_social();
       break;
-
+    case 'chalk_main_menu':
+      $block['content'] = _chalk_display_main_menu();
+      break;
+    case 'chalk_artists_teaser':
+      $block['content'] = _chalk_display_artists_teaser();
+      break;
+    case 'chalk_intro':
+      $block['content'] = _chalk_display_intro();
+      break;
     case 'syndicate':
       $block['subject'] = t('Syndicate');
       $block['content'] = array(

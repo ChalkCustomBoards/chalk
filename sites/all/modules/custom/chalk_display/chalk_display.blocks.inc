@@ -25,3 +25,110 @@ function _chalk_display_social() {
     '#markup' => $output,
   );
 }
+
+
+function _chalk_display_main_menu() {
+	$tree = menu_tree_all_data('main-menu');
+	$items = array();
+  $output = '';
+  $output = '<nav id="nav">';
+	foreach($tree as $leaf){
+		//$items[] = l('<span class="icon >'. $leaf['link']['link_title']. '</span>', $leaf['link']['href'], array('html' => TRUE));
+		$items[] = l($leaf['link']['link_title'], $leaf['link']['href']);
+	}
+	$type = 'ul';
+	$attributes = array();
+	$output .= theme_item_list(array('items' => $items, 'title' => NULL, 'type' => $type, 'attributes' => $attributes));
+
+  $output .= '</nav>';
+  return array(
+    '#markup' => $output,
+  );
+}
+
+function _chalk_display_intro() {
+  $output = '
+            <section id="top" class="one dark cover">
+              <div class="container">
+                <header>
+                  <h2 class="alt"><strong>In custom boards we trust</strong></h2>
+                  <p>
+                  CHALK is more than a collective, it is a new way of gathering artists and riders around board art.
+Stay connected and find out where and when CHALK will perform, in France, Belgium and more.
+Get to know the CHALK artists and be all set for their next custom boards.
+								</p>
+                </header>
+
+                <footer>
+                  <a href="artists" class="button scrolly"></a>
+                </footer>
+
+              </div>
+            </section>';
+  return array(
+    '#markup' => $output,
+  );
+}
+
+function _chalk_display_artists_teaser() {
+
+	global $language;
+	$query = new EntityFieldQuery();
+
+	$nodes = array();
+	$query->entityCondition('entity_type', 'node')
+		->entityCondition('bundle', 'artist')
+		->propertyCondition('status', NODE_PUBLISHED)
+		->range(0, 10);
+
+	$result = $query->execute();
+
+	if (isset($result['node'])) {
+		$items_nids = array_keys($result['node']);
+		$nodes = entity_load('node', $items_nids);
+	}
+
+  $output = '
+  <section id="portfolio" class="two">
+						<div class="container">
+
+							<header>
+								<h2>Chalk artists</h2>
+							</header>
+
+							<p>Vitae natoque dictum etiam semper magnis enim feugiat convallis convallis
+							egestas rhoncus ridiculus in quis risus amet curabitur tempor orci penatibus.
+							Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis
+							fusce hendrerit lacus ridiculus.</p>';
+
+	$output .= '<div class="row">';
+
+	foreach($nodes as $n){
+		$variables = array(
+			'path' => image_style_url('artist_teaser', $n->field_banner['und'][0]['uri']),
+			'alt' => $n->field_banner['und'][0]['alt'],
+			'title' => $n->field_banner['und'][0]['alt'],
+			'attributes' => array(),
+		);
+		$img = theme('image', $variables);
+		$image = '';
+		$title = $n->title_field[$language->language][0]['value'];
+		$output .= '<div class="4u 12u$(mobile)">
+									<article class="item">
+										<a href="#" class="image fit">'.$image.'</a>
+										<header>
+											<h3>'.$title.'</h3>
+										</header>
+									</article>
+								</div>';
+	}
+
+	$output .='
+							</div>
+						</div>
+					</section>
+  ';
+  return array(
+    '#markup' => $output,
+  );
+}
