@@ -89,8 +89,8 @@ Get to know the CHALK artists and be all set for their next custom boards.</p>
               <div class="inner">
                 <header>
                   <h2>Contact us</h2>
-                  <p>chalkcustomboard@gmail.com.</p>
-                  <p>DOWNLOAD OUR CHALK BROCHURE</p>
+                  <p><a href='m&#97;&#105;l&#116;o&#58;&#37;63&#104;al&#37;6&#66;cu%73t&#111;m%&#54;2o&#97;rd&#64;gm%61&#105;l&#46;c%&#54;&#70;m'>cha&#108;k&#99;u&#115;to&#109;&#98;o&#97;&#114;&#100;&#64;g&#109;a&#105;l&#46;c&#111;m</a>
+                  <br><a href="http://www.chalkcustomboard.com/app/download/12272310825/CHALK_BOARD_PROJECT_08_07_2015.pdf">DOWNLOAD OUR CHALK BROCHURE</a> [PDF]</p>
                 </header>
                 <ul class="actions vertical">
                   <li><a href="get-involved" class="button fit special">Get involved !</a></li>
