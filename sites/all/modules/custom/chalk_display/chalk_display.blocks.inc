@@ -70,6 +70,111 @@ Get to know the CHALK artists and be all set for their next custom boards.
   );
 }
 
+/**
+ * @todo description
+ * @return array
+ */
+function _chalk_display_artists_teaser() {
+
+	global $language;
+	$query = new EntityFieldQuery();
+
+	$nodes = array();
+	$query->entityCondition('entity_type', 'node')
+		->entityCondition('bundle', 'artist')
+		->propertyCondition('status', NODE_PUBLISHED)
+		->range(0, 10);
+
+	$result = $query->execute();
+
+	if (isset($result['node'])) {
+		$items_nids = array_keys($result['node']);
+		$nodes = entity_load('node', $items_nids);
+	}
+
+	$output = '';
+
+	foreach($nodes as $n){
+		$variables = array(
+			'path' => image_style_url('artist_teaser', $n->field_banner['und'][0]['uri']),
+			'alt' => $n->field_banner['und'][0]['alt'],
+			'title' => $n->field_banner['und'][0]['alt'],
+			'attributes' => array(),
+		);
+		//dpm($n);
+		$description = truncate_utf8($n->body['und'][0]['safe_value'], 300, TRUE, TRUE);
+		//$description = text_summary($n->body['und'][0]['safe_value'], NULL, 600);
+		//$description = $n->field_speciality[LANGUAGE_NONE][0]['safe_value'];
+		$image = theme('image', $variables);
+		$title = $n->title_field[$language->language][0]['value'];
+		$output .= '<section class="spotlight">
+									<div class="image">
+										<a href="#" class="image fit">'.$image.'</a>
+									</div>
+									<div class="content">
+											<h2>'.$title.'</h2>
+											<p>'.$description.'</p><p>'.
+											l(t('Read more'), drupal_get_path_alias('node/'.$n->nid))
+									.'</p></div>
+								</section>';
+	}
+
+	return array(
+		'#markup' => $output,
+	);
+}
+
+/**
+ * @todo description
+ * @return array
+ */
+function _chalk_display_events_teaser() {
+
+	global $language;
+	$query = new EntityFieldQuery();
+
+	$nodes = array();
+	$query->entityCondition('entity_type', 'node')
+		->entityCondition('bundle', 'event')
+		->propertyCondition('status', NODE_PUBLISHED)
+		->range(0, 10);
+  // @todo orderBy
+
+	$result = $query->execute();
+
+	if (isset($result['node'])) {
+		$items_nids = array_keys($result['node']);
+		$nodes = entity_load('node', $items_nids);
+	}
+  $output = '';
+
+  // @todo theme_item list
+  $output .= '<ul class="features">';
+  foreach($nodes as $n){
+    dpm($n);
+    $title = $n->title_field[$language->language][0]['value'];
+    $description = '';
+    if(isset($n->body['und'][0]['safe_value'])) {
+      $description = truncate_utf8($n->body['und'][0]['safe_value'], 300, TRUE, TRUE);
+    }
+    $date = format_date(strtotime($n->field_date['und'][0]['value']), 'medium'); // @todo from to
+    $location = $n->field_event_location['und'][0]['locality'] . '('.$n->field_event_location['und'][0]['country'].')';
+    $output .= '
+    <li class="icon">
+			<h3>'.$title.'</h3>
+      <h4>'.$date. '<br>'.$location.'</h4>'
+      .$description.
+			'<p>'.l(t("Read more"), "node/".$n->nid).'</p>
+		</li>';
+  }
+  $output .= '</ul>';
+
+	return array(
+		'#markup' => $output,
+	);
+}
+
+/*
 function _chalk_display_artists_teaser() {
 
 	global $language;
@@ -132,3 +237,4 @@ function _chalk_display_artists_teaser() {
     '#markup' => $output,
   );
 }
+*/

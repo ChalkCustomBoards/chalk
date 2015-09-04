@@ -3,6 +3,23 @@
   Preprocess
 */
 
+/**
+ * Preprocess
+ * @param $vars
+ * @param $hook
+ */
+function chalk_preprocess(&$vars, $hook) {
+  global $theme;
+  global $base_url;
+  //$path = drupal_get_path('theme', $theme);
+  $path_chalk = drupal_get_path('theme', 'chalk');
+  //if ( $hook == "html" ) {
+    // =======================================| HTML |========================================
+    //get the path for the site
+    $vars['chalk_path'] = $base_url . '/' . $path_chalk;
+  //}
+}
+
 /*
 function chalk_preprocess_html(&$vars) {
   //  kpr($vars['content']);

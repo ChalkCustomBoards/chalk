@@ -33,6 +33,11 @@ regions[sidebar_second] = Sidebar Second
 regions[help] = Help
 regions[highlighted] = Highlighted
 
+;-- Front Regions
+regions[front_one] = Front One
+regions[front_two] = Front Two
+regions[front_three] = Front Three
+regions[front_post_content] = Front Post Content
 
 
 ;-------------- C S S -------------
