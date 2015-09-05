@@ -27,9 +27,7 @@
               <div class="inner">
                 <?php if ($logo): ?>
                   <figure>
-                    <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home">
                       <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-                    </a>
                   </figure>
                 <?php endif; ?>
 
