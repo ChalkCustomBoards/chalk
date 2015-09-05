@@ -7,6 +7,19 @@
 	color:#000000;
 }
 
+.node-type-artist .field-type-image .field-item{
+	float:left;
+	padding: 10px;
+}
+
+.node-type-artist .field-type-image .field-item img{
+	border: 5px solid #efefef;
+}
+
+.spacer {
+	clear: both;
+}
+
 /*
 	Spectral by HTML5 UP
 	html5up.net | @n33co

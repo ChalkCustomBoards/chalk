@@ -53,6 +53,7 @@
                   <?php print render($page['content']); ?>
 
                   <?php print render($page['content_post']); ?>
+                  <div class="spacer"></div>
 							</div>
 						</section>
 					</article>
