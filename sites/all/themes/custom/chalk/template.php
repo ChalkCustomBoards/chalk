@@ -20,12 +20,13 @@ function chalk_preprocess(&$vars, $hook) {
   //}
 }
 
-/*
+
 function chalk_preprocess_html(&$vars) {
   //  kpr($vars['content']);
 }
-*/
-/*
+
+
+
 function chalk_preprocess_page(&$vars,$hook) {
   //typekit
   //drupal_add_js('http://use.typekit.com/XXX.js', 'external');
@@ -36,9 +37,8 @@ function chalk_preprocess_page(&$vars,$hook) {
   
   //googlefont 
   //  drupal_add_css('http://fonts.googleapis.com/css?family=Bree+Serif','external');
- 
 }
-*/
+
 /*
 function chalk_preprocess_region(&$vars,$hook) {
   //  kpr($vars['content']);
