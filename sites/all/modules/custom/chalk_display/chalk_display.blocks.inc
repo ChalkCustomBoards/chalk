@@ -164,7 +164,7 @@ function _chalk_display_events_teaser() {
     $output .= '
     <li class="icon">
 			<h3>'.$title.'</h3>
-      <h4>'.$date. '</h4>><p>'.$location.'</p>'
+      <h4>'.$date. '</h4><p>'.$location.'</p>'
       .$description.
 			//'<p>'.l(t("Read more"), "node/".$n->nid).'</p>
 		'</li>';

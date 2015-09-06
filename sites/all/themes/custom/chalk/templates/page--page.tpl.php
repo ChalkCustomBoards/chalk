@@ -21,6 +21,11 @@
                     <a href="#menu" class="menuToggle"><span>Menu</span></a>
                     <div id="menu">
                       <ul>
+                        <li>
+                          <figure>
+                           <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+                          </figure>
+                        </li>
                         <li><a href="chalk-custom-board-project">Chalk</a></li>
                         <li><a href="get-involved">Get involved !</a></li>
                         <li><a href="artists">Artists</a></li>
