@@ -31,7 +31,7 @@
 
             <section id="banner">
               <div style="width: 100%; height: 100%;">
-                <iframe height="100%" width="100%" src="https://player.vimeo.com/video/18300299#t=1m5s?autoplay=1&title=0&byline=0&portrait=0" width="500" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                <iframe height="100%" width="100%" src="https://player.vimeo.com/video/18300299#t=0m56s?autoplay=1&title=0&byline=0&portrait=0" width="500" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                 <!--
                 <iframe frameborder="0" height="100%" width="100%"
                   src="https://youtube.com/embed/1nmpNXOMZyQ?start=600&autoplay=1&controls=0&showinfo=0&autohide=1">

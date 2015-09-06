@@ -53,9 +53,15 @@
 	left: 50%;
 	margin-top: -190px; /* negative half the size of height */
 	margin-left: -400px; /* negative half the size of width */
+	background: rgba(0,0,0,0.35);
+	-webkit-box-shadow: 10px 10px 12px -9px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 12px -9px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 12px -9px rgba(0,0,0,0.75);
 }
 
+.front #logo{
 
+}
 
 /* Reset */
 
