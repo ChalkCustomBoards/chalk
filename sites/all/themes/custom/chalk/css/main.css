@@ -1648,9 +1648,9 @@
 	}
 
 		header.major h2, header.major h3, header.major h4, header.major h5, header.major h6 {
-			border-bottom: solid 2px #fff;
+			/*border-bottom: solid 2px #fff;*/
 			display: inline-block;
-			padding-bottom: 1em;
+			padding-bottom: 0.2em;
 			position: relative;
 		}
 
@@ -2426,12 +2426,12 @@
 
 			.features li:nth-child(3) {
 				/*background-color: rgba(0, 0, 0, 0.105);*/
-				background-color: #efefef;
+				background-color: #fff;
 			}
 
 			.features li:nth-child(4) {
 				/*background-color: rgba(0, 0, 0, 0.14);*/
-				background-color: #fff;
+				background-color: #efefef;
 			}
 
 			.features li:nth-child(5) {

@@ -153,21 +153,31 @@ function _chalk_display_events_teaser() {
   // @todo theme_item list
   $output .= '<ul class="features">';
   foreach($nodes as $n){
-    dpm($n);
+    //dpm($n);
     $title = $n->title_field[$language->language][0]['value'];
     $description = '';
     if(isset($n->body['und'][0]['safe_value'])) {
       $description = truncate_utf8($n->body['und'][0]['safe_value'], 300, TRUE, TRUE);
     }
+
+    $variables = array(
+      'path' => image_style_url('artist_teaser', $n->field_image['und'][0]['uri']),
+      'alt' => $n->field_image['und'][0]['alt'],
+      'title' => $n->field_image['und'][0]['alt'],
+      'attributes' => array(),
+    );
+    $image = theme('image', $variables);
+
     $date = format_date(strtotime($n->field_date['und'][0]['value']), 'medium'); // @todo from to
     $location = $n->field_event_location['und'][0]['locality'] . ' ['.$n->field_event_location['und'][0]['country'].']';
     $output .= '
     <li class="icon">
 			<h3>'.$title.'</h3>
       <h4>'.$date. '</h4><p>'.$location.'</p>'
+      .$image
       .$description.
-			//'<p>'.l(t("Read more"), "node/".$n->nid).'</p>
-		'</li>';
+			'<p>'.l(t("Read more"), drupal_get_path_alias("node/".$n->nid)).'</p>
+		</li>';
   }
   $output .= '</ul>';
 
