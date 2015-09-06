@@ -11,6 +11,11 @@
                     <a href="#menu" class="menuToggle"><span>Menu</span></a>
                     <div id="menu">
                       <ul>
+                        <li>
+                          <figure>
+                           <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+                          </figure>
+                        </li>
                         <li><a href="chalk-custom-board-project">Chalk</a></li>
                         <li><a href="get-involved">Get involved !</a></li>
                         <li><a href="artists">Artists</a></li>
@@ -35,13 +40,15 @@
                     <?php if($site_slogan): ?>
                       <h2><?php print $site_slogan; ?></h2>
                     <?php endif; ?>
+                    <!--
                       <p></p>
                       <ul class="actions">
                         <li><a href="get-involved" class="button special">Get involved</a></li>
                       </ul>
+                    -->
                   </hgroup>
               </div>
-              <a href="#one" class="more scrolly">Chalk artists</a>
+              <a href="#one" class="more scrolly">Meet Chalk</a>
             </section>
 
           <!-- One -->
@@ -63,12 +70,6 @@ Stay connected and find out where and when CHALK will perform, in France, Belgiu
               </div>
             </section>
 
-          <!-- Two -->
-            <section id="two" class="wrapper alt style2">
-
-              <?php print render($page['front_two']); ?>
-
-            </section>
 
           <!-- Three -->
             <section id="three" class="wrapper style3 special">
@@ -81,6 +82,15 @@ Stay connected and find out where and when CHALK will perform, in France, Belgiu
 
               </div>
             </section>
+
+          <!-- Two -->
+            <section id="two" class="wrapper alt style2">
+
+              <?php print render($page['front_two']); ?>
+
+            </section>
+
+
 
           <!-- CTA -->
             <section id="cta" class="wrapper style4">

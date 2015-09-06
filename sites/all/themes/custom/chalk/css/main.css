@@ -1,6 +1,7 @@
 @import url(font-awesome.min.css);
 @import url("http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic");
 
+/* Custom, @todo refactoring needed */
 
 .not-front .content h2,
 .not-front .content{
@@ -20,11 +21,19 @@
 	clear: both;
 }
 
-/*
-	Spectral by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+.front #three h2,
+.front #three h3,
+.front #three h4,
+.front #three p{
+	color:#000000;
+}
+
+.front #three {
+	background-color: transparent;
+	background-image: url("../images/light_background.jpg");
+}
+
+
 
 /* Reset */
 
@@ -2406,19 +2415,23 @@
 		}
 
 			.features li:nth-child(1) {
-				background-color: rgba(0, 0, 0, 0.035);
+				/*background-color: rgba(0, 0, 0, 0.035);*/
+				background-color: #efefef;
 			}
 
 			.features li:nth-child(2) {
-				background-color: rgba(0, 0, 0, 0.07);
+				/*background-color: rgba(0, 0, 0, 0.07);*/
+				background-color: #fff;
 			}
 
 			.features li:nth-child(3) {
-				background-color: rgba(0, 0, 0, 0.105);
+				/*background-color: rgba(0, 0, 0, 0.105);*/
+				background-color: #efefef;
 			}
 
 			.features li:nth-child(4) {
-				background-color: rgba(0, 0, 0, 0.14);
+				/*background-color: rgba(0, 0, 0, 0.14);*/
+				background-color: #fff;
 			}
 
 			.features li:nth-child(5) {
@@ -3832,3 +3845,17 @@
 	body.is-mobile.front #footer {
 		background-color: #1d242a;
 	}
+
+
+
+#menu {
+	background-color: transparent;
+	background-image: url("../images/blackboard_bg.jpg");
+}
+
+
+/*
+	Spectral by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
