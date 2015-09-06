@@ -26,6 +26,11 @@
 .front #three h4,
 .front #three p{
 	color:#000000;
+
+}
+
+.front #three h3,
+.front #three h4{
 	margin: 0;
 }
 
