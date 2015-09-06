@@ -76,7 +76,7 @@ Stay connected and find out where and when CHALK will perform, in France, Belgiu
               <div class="inner">
                 <header class="major">
                   <h2>Events</h2>
-                  <p>Meet CHALK, be there</p>
+                  <!--<p>Meet CHALK</p>-->
                   <?php print render($page['front_three']); ?>
                 </header>
 

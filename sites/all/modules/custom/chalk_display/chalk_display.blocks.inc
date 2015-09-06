@@ -161,7 +161,7 @@ function _chalk_display_events_teaser() {
     }
 
     $variables = array(
-      'path' => image_style_url('artist_teaser', $n->field_image['und'][0]['uri']),
+      'path' => image_style_url('event_teaser', $n->field_image['und'][0]['uri']),
       'alt' => $n->field_image['und'][0]['alt'],
       'title' => $n->field_image['und'][0]['alt'],
       'attributes' => array(),
