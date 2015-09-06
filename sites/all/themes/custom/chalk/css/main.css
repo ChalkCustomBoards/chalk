@@ -43,6 +43,18 @@
 	background-image: url("../images/light_background.jpg");
 }
 
+.front #logo {
+	width: 800px;
+	height: 380px;
+	background: transparent;
+	z-index: 100;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -190px; /* negative half the size of height */
+	margin-left: -400px; /* negative half the size of width */
+}
+
 
 
 /* Reset */
