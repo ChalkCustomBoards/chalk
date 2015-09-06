@@ -26,6 +26,11 @@
 .front #three h4,
 .front #three p{
 	color:#000000;
+	margin: 0;
+}
+
+.front #three h4{
+	font-weight: 500;
 }
 
 .front #three {
