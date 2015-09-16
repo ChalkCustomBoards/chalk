@@ -8,13 +8,27 @@
 	color:#000000;
 }
 
+.field-type-image a, .field-type-image a:hover {
+	border-bottom: none;
+}
+
 .node-type-artist .field-type-image .field-item{
 	float:left;
 	padding: 10px;
+    width: 50%;
+}
+
+.node-type-artist .field-type-image .field-item.even{
+	padding-left: 0;
+}
+
+.node-type-artist .field-type-image .field-item.odd{
+	padding-right: 0;
 }
 
 .node-type-artist .field-type-image .field-item img{
-	border: 5px solid #efefef;
+	border: 5px solid rgb(46, 56, 66);;
+	width: 100%;
 }
 
 .spacer {
@@ -2576,13 +2590,6 @@
 			.spotlight .image img {
 				border-radius: 0;
 				width: 100%;
-				transform:scale(1);
-				animation: scaleffect 1s ease-out;
-			}
-
-			@keyframe scaleffect {
-				0% {transform:scale(1);}
-				100% {transform:scale(1.4);}
 			}
 
 		.spotlight .content {
@@ -2683,6 +2690,18 @@
 				padding: 3em 2em 1em 2em ;
 			}
 
+		}
+
+		.spotlight .content p a {
+			padding: 0.5em 1em;
+			border: 1px solid white;
+			-webkit-transition: all 0.5s;
+			transition: all 0.5s;
+		}
+
+		.spotlight .content p a:hover {
+			background: white;
+			color: rgb(46, 56, 66);
 		}
 
 /* Wrapper */
@@ -3284,23 +3303,22 @@
 					display: block; 
 					height: 2px;
 					margin: 0 auto;
-					opacity: 0;
 					text-align: center;
-					width: 35px;
-					-webkit-transition: all 0.5s;
-					-moz-transition: all 0.5s;
-					-ms-transition: all 0.5s;
-					-o-transition: all 0.5s;
-					transition: all 0.5s;
+					width: 0;
+					-webkit-transition: all 0.2s ease-out;
+					-moz-transition: all 0.2s ease-out;
+					-ms-transition: all 0.2s ease-out;
+					-o-transition: all 0.2s ease-out;
+					transition: all 0.2s ease-out;
 				}
 				
 				#menu ul.menu-link > li > a:hover:after, #menu ul.menu-link > li > a.active:after {
-					opacity: 1;
-					-webkit-transition: all 0.5s;
-					-moz-transition: all 0.5s;
-					-ms-transition: all 0.5s;
-					-o-transition: all 0.5s;
-					transition: all 0.5s;
+					width: 10%;
+					-webkit-transition: all 0.2s ease-out;
+					-moz-transition: all 0.2s ease-out;
+					-ms-transition: all 0.2s ease-out;
+					-o-transition: all 0.2s ease-out;
+					transition: all 0.2s ease-out;
 				}
 
 					@media screen and (max-width: 736px) {
@@ -3346,6 +3364,7 @@
 				padding: 0;
 				position: relative;
 				text-transform: uppercase;
+    			margin-bottom: 20px;
 			}
 
 				
@@ -3379,18 +3398,28 @@
 
 		#menu .close {
 			background-image: url("images/close.svg");
-			background-position: 4.85em 1em;
+			background-size: cover;
 			background-repeat: no-repeat;
 			border: 0;
 			cursor: pointer;
 			display: block;
-			height: 3em;
+			height: 1em;
 			position: absolute;
-			right: 0;
-			top: 0;
+			right: 30px;
+			top: 20px;
 			vertical-align: middle;
-			width: 7em;
+			width: 1em;
+			-webkit-transform: rotate(180deg);
 			transform: rotate(180deg);
+			-webkit-transition: 1s all;
+			transition: 1s all;
+		}
+
+		#menu .close.rotate {
+			-webkit-transform: rotate(0deg);
+			transform: rotate(0deg);
+			-webkit-transition: 1s all ease-out;
+			transition: 1s all ease-out;
 		}
 
 		@media screen and (max-width: 736px) {
@@ -3423,7 +3452,8 @@
 		-webkit-transition: background-color 0.2s ease;
 		-ms-transition: background-color 0.2s ease;
 		transition: background-color 0.2s ease;
-		background: #2e3842;
+		background: url("../images/blackboard_bg.jpg");
+		background-size: cover;
 		height: 3em;
 		left: 0;
 		line-height: 3em;
@@ -3431,6 +3461,7 @@
 		top: 0;
 		width: 100%;
 		z-index: 10000;
+		box-shadow: 2px 2px 2px rgba(1, 1, 1, 0.6);
 	}
 
 		#header h1 {
@@ -3532,6 +3563,7 @@
 
 		#header.alt {
 			background: transparent;
+			box-shadow: none
 		}
 
 			#header.alt h1 {
@@ -3659,9 +3691,23 @@
 				display: block;
 				height: 1.5em;
 				left: 50%;
+				top: 30px;
 				margin: 0 0 0 -0.75em;
 				position: absolute;
 				width: 1.5em;
+				-webkit-animation: scrolldown 1.5s infinite;
+				animation: scrolldown 1.5s infinite;
+			}
+			-webkit-@keyframes scrolldown {
+				0% {top: 30px;}
+				50% {top: 40px;}
+				100% {top: 30px;}
+			}
+
+			@keyframes scrolldown {
+				0% {top: 30px;}
+				50% {top: 40px;}
+				100% {top: 30px;}
 			}
 
 		#banner:after {
@@ -3988,6 +4034,94 @@
 #menu {
 	background-color: transparent;
 	background-image: url("../images/blackboard_bg.jpg");
+}
+
+.node-artist {
+	margin-bottom: 40px;
+}
+
+.node-artist label {
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.field-type-text-with-summary {
+	margin-top: 20px;
+}
+
+.node-readmore a {
+	background: rgb(46, 56, 66);
+	padding: 0.5em 1em;
+	color: white;
+	border: 1px solid transparent;
+			-webkit-transition: 1s all ease-out;
+			transition: 1s all ease-out;
+}
+
+.node-readmore a:hover {
+	background: white;
+	color: rgb(46, 56, 66);
+	border: 1px solid rgb(46, 56, 66);
+	-webkit-transition: 1s all ease-out;
+	transition: 1s all ease-out;
+}
+
+.node-teaser .field-type-image {
+	position: relative;
+	overflow: hidden;
+	height: 300px;
+}
+
+.node-teaser img {
+	width: 100%;
+	position: absolute;
+}
+
+.addressfield-container-inline {
+	float: left;
+	margin-right: 5px;
+}
+
+.field-type-addressfield {
+	margin-bottom: 30px;
+}
+
+.field-type-addressfield .country {
+	font-weight: bold;
+}
+
+.node-event .field-type-image img {
+	width: 100%;
+}
+
+.node-event .field-type-image label {
+	display: none;
+}
+
+#cboxWrapper {
+	background: none;
+}
+
+img {
+	-webkit-filter: sepia(0);
+  	filter: sepia(0);
+	-webkit-transition: 0.5s all ease-out;
+	position: relative;
+	transition: 0.5s all ease-out;
+}
+
+.colorbox img:hover {
+	-webkit-filter: sepia(1);
+  filter: sepia(1);	-webkit-transition: 0.5s all ease-out;
+	transition: 0.5s all ease-out;
+	position: relative;
+}
+
+a:hover img {
+	-webkit-filter: sepia(1);
+  	filter: sepia(1);
+	-webkit-transition: 0.5s all ease-out;
+	transition: 0.5s all ease-out;
 }
 
 

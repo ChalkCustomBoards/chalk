@@ -1,7 +1,7 @@
 (function ($) {
 
-	// $(".spotlight").hover(
-	// 	$(this).find("img").toggleClass("spotlighthover")
-	// );
+	$(".menuToggle").click(function() {
+		$(".close").toggleClass("rotate");
+	});
 
 })(jQuery);
