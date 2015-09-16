@@ -10,7 +10,7 @@
                   <li class="special">
                     <a href="#menu" class="menuToggle"><span>Menu</span></a>
                     <div id="menu">
-                      <ul>
+                      <ul class="menu-link">
                         <li>
                           <figure>
                            <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
@@ -20,6 +20,12 @@
                         <li><a href="get-involved">Get involved !</a></li>
                         <li><a href="artists">Artists</a></li>
                         <li><a href="events">Events</a></li>
+                      </ul>
+                      <ul class="menu-social-icon">
+                        <li class="call-link"><p>join us</p></li>
+                        <li><a href="https://instagram.com/chalkcustomboard/" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                        <li><a href="https://www.pinterest.com/chalkcustom/" class="icon fa-pinteres"><span class="label">Pinterest</span></a></li>
+                        <li><a href="https://www.youtube.com/channel/UCkzRQhwlf39InmYu8WsRRRA" class="icon fa-youtube"><span class="label">YouTube</span></a></li>
                       </ul>
                     </div>
                   </li>

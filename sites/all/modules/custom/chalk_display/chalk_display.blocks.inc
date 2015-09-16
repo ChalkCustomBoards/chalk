@@ -109,7 +109,7 @@ function _chalk_display_artists_teaser() {
 		$title = $n->title_field[$language->language][0]['value'];
 		$output .= '<section class="spotlight">
 									<div class="image">
-										<a href="'.drupal_get_path_alias('node/'.$n->nid).'">'.$image.'</a>
+										<a href="'.drupal_get_path_alias('node/'.$n->nid).'"><div class="scale-effect">'.$image.'</div></a>
 									</div>
 									<div class="content">
 											<h2>'.$title.'</h2>
