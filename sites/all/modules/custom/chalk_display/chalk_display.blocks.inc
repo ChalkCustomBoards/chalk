@@ -3,6 +3,7 @@
 /**
  * @file chalk_display.blocks.php
  * Blocks markup for the Chalk Display module.
+ * @todo model / view files
  */
 
 /**
@@ -71,6 +72,17 @@ Get to know the CHALK artists and be all set for their next custom boards.
 }
 
 /**
+ * Alters a query to sort by node weight.
+ * @param \QueryAlterableInterface $query
+ */
+function chalk_display_query_sort_by_weight_alter(QueryAlterableInterface $query) {
+	$query->join('weight_weights', 'w', 'node.nid = w.entity_id');
+	$query->fields('w', array('weight'));
+	$query->orderBy('w.weight', 'ASC');
+	// var_dump($query->getOrderBy());
+}
+
+/**
  * @todo description
  * @return array
  */
@@ -83,7 +95,8 @@ function _chalk_display_artists_teaser() {
 	$query->entityCondition('entity_type', 'node')
 		->entityCondition('bundle', 'artist')
 		->propertyCondition('status', NODE_PUBLISHED)
-		->range(0, 10);
+		->addTag('sort_by_weight');
+		//->range(0, 10);
 
 	$result = $query->execute();
 
