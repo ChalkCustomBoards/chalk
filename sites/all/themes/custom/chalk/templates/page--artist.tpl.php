@@ -46,7 +46,7 @@
 				<!-- Main -->
 					<article id="main">
 						<header>
-							<h2><?php print $title; ?></h2>
+							<h2><?php print $title; // @todo semantic : review h1 usage / css ?></h2>
 							<p></p>
 						</header>
 						<section class="wrapper style5">
@@ -58,6 +58,7 @@
                     </div>
                   <?php } ?>
 
+                  <h2><?php print $title; ?></h2>
 
                   <?php print render($page['content_pre']); ?>
 
