@@ -16,10 +16,10 @@
                            <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
                           </figure>
                         </li>
-                        <li><a href="chalk-custom-board-project">Chalk</a></li>
-                        <li><a href="get-involved">Get involved !</a></li>
-                        <li><a href="artists">Artists</a></li>
-                        <li><a href="events">Events</a></li>
+                        <li><a href="/">Chalk</a></li>
+                        <li><a href="/get-involved">Get involved !</a></li>
+                        <li><a href="/artists">Artists</a></li>
+                        <li><a href="/events">Events</a></li>
                       </ul>
                       <ul class="menu-social-icon">
                         <li class="call-link"><p>join us</p></li>
