@@ -72,10 +72,10 @@
             <section id="one" class="wrapper style1 special">
               <div class="inner">
                 <header class="major">
-                  <h2>CHALK is more than a collective</h2>
-                  <p>it is a new way of gathering artists and riders around board art.<br>
-Stay connected and find out where and when CHALK will perform, in France, Belgium and more.</p>
-<p>Get to know the CHALK artists and be all set for their next custom boards.</p>
+                  <h2>CHALK CUSTOM BOARD PROJECT. IN CUSTOM BOARD WE TRUST.</h2>
+                  <p>One mission. To gather various known and not-so-well-known artists around the same theme : the Board.<br>
+Skateboard, longboard, surfboard, snowboard, kiteboard...<br>We never get fed up with so many opportunities to express ourselves.</p>
+<p>Stay connected. Get to know the Chalkers.<br>Meet us at our next exhibitions and events. Order some custom boards.</p>
                 </header>
                 <!--
                 <ul class="icons major">
