@@ -30,6 +30,7 @@
                         <li><a href="/get-involved">Get involved !</a></li>
                         <li><a href="/artists">Artists</a></li>
                         <li><a href="/events">Events</a></li>
+                        <li><a href="/videos">Videos</a></li>
                       </ul>
                       <ul class="menu-social-icon">
                         <li class="call-link"><p>join us</p></li>
