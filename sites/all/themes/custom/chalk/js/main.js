@@ -97,4 +97,6 @@
 
 	});
 
+	$('.not-front iframe').wrap('<div class="flex-video"></div>');
+
 })(jQuery);
