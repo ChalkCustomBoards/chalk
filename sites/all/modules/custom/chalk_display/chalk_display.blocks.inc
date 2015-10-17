@@ -152,7 +152,7 @@ function _chalk_display_events_teaser() {
 		->propertyCondition('status', NODE_PUBLISHED)
     //http://drupal.stackexchange.com/questions/9276/how-to-use-entityfieldquery-with-dates
     //->fieldCondition('field_date', 'value', 'NOW()', '>')
-    ->fieldOrderBy('field_date', 'value', 'ASC')
+    ->fieldOrderBy('field_date', 'value', 'DESC')
 		->range(0, 10);
 
 	$result = $query->execute();
