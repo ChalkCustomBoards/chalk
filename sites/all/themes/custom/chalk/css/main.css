@@ -3858,6 +3858,8 @@
 
 /* Main */
 
+	/*
+	@see template.php chalk_preprocess_page
 	#main > header {
 		padding: 12em 0 10em 0 ;
 		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../images/banner.jpg");
@@ -3870,6 +3872,7 @@
 		background-size: cover;
 		text-align: center;
 	}
+	*/
 
 		#main > header h2 {
 			font-size: 1.75em;

@@ -7,7 +7,9 @@
 <?php if( theme_get_setting('mothership_poorthemers_helper') ){ ?>
 <!-- page.tpl.php -->
 <?php } ?>
-<?php print $mothership_poorthemers_helper; ?>
+<?php
+  hide($page['content']['system_main']['nodes'][$nid]['field_banner']);
+?>
 
 <!-- Page Wrapper -->
 			<div id="page-wrapper">
