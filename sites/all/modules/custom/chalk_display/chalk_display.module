@@ -43,6 +43,10 @@ function chalk_display_block_info() {
     'info' => t('Chalk events teaser'),
     'cache' => DRUPAL_NO_CACHE
   );
+  $blocks['chalk_events_teaser_all'] = array(
+    'info' => t('Chalk events teaser all'),
+    'cache' => DRUPAL_NO_CACHE
+  );
   $blocks['chalk_intro'] = array(
     'info' => t('Chalk intro'),
     'cache' => DRUPAL_NO_CACHE
@@ -78,7 +82,10 @@ function chalk_display_block_view($delta = '') {
       $block['content'] = _chalk_display_main_menu();
       break;
     case 'chalk_events_teaser':
-      $block['content'] = _chalk_display_events_teaser();
+      $block['content'] = _chalk_display_events_teaser('next');
+      break;
+    case 'chalk_events_teaser_all':
+      $block['content'] = _chalk_display_events_teaser('all');
       break;
     case 'chalk_artists_teaser':
       $block['content'] = _chalk_display_artists_teaser();

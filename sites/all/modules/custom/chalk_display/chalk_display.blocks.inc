@@ -141,18 +141,30 @@ function _chalk_display_artists_teaser() {
  * @todo description
  * @return array
  */
-function _chalk_display_events_teaser() {
+function _chalk_display_events_teaser($type = 'next') {
 
 	global $language;
 	$query = new EntityFieldQuery();
+
+	// ordering events depending if we display next or all
+	$order = '';
+	switch($type){
+		case 'all':
+			$order = 'ASC';
+			break;
+		case 'next':
+			$order = 'DESC';
+			break;
+	}
 
 	$nodes = array();
 	$query->entityCondition('entity_type', 'node')
 		->entityCondition('bundle', 'event')
 		->propertyCondition('status', NODE_PUBLISHED)
+		// @todo display next from query
     //http://drupal.stackexchange.com/questions/9276/how-to-use-entityfieldquery-with-dates
     //->fieldCondition('field_date', 'value', 'NOW()', '>')
-    ->fieldOrderBy('field_date', 'value', 'DESC')
+    ->fieldOrderBy('field_date', 'value', $order)
 		->range(0, 10);
 
 	$result = $query->execute();
@@ -167,32 +179,50 @@ function _chalk_display_events_teaser() {
   $output .= '<ul class="features">';
   foreach($nodes as $n){
     //dpm($n);
-    $title = $n->title_field[$language->language][0]['value'];
-    $description = '';
-    if(isset($n->body['und'][0]['safe_value'])) {
-      $description = truncate_utf8($n->body['und'][0]['safe_value'], 300, TRUE, TRUE);
-    }
+		// display only next events if type == 'next'
+		$date = new DateTime();
+		$now = $date->getTimestamp();
+		// @todo comparison should probably be done on end date as well for long events
+		$event_date = strtotime($n->field_date['und'][0]['value']);
+		$is_past = $now > $event_date;
+		$display_event = TRUE;
+		if($type == 'next' && $is_past){
+			$display_event = FALSE;
+		}
 
-    $variables = array(
-      'path' => image_style_url('event_teaser', $n->field_image['und'][0]['uri']),
-      'alt' => $n->field_image['und'][0]['alt'],
-      'title' => $n->field_image['und'][0]['alt'],
-      'attributes' => array(),
-    );
-    $image = theme('image', $variables);
+		if($display_event) {
+			$title = $n->title_field[$language->language][0]['value'];
+			$description = '';
+			if (isset($n->body['und'][0]['safe_value'])) {
+				$description = truncate_utf8($n->body['und'][0]['safe_value'], 300, TRUE, TRUE);
+			}
 
-    $date = format_date(strtotime($n->field_date['und'][0]['value']), 'medium'); // @todo from to
-    $location = $n->field_event_location['und'][0]['locality'] . ' ['.$n->field_event_location['und'][0]['country'].']';
-    $output .= '
-    <li class="icon">
-			<h3>'.$title.'</h3>
-      <h4>'.$date. '</h4><p>'.$location.'</p>'
-      .$image
-      .$description.
-			'<p>'.l(t("Read more"), drupal_get_path_alias("node/".$n->nid)).'</p>
-		</li>';
+			if(isset($n->field_image['und'][0]['uri'])) {
+				$variables = array(
+					'path' => image_style_url('event_teaser', $n->field_image['und'][0]['uri']),
+					'alt' => $n->field_image['und'][0]['alt'],
+					'title' => $n->field_image['und'][0]['alt'],
+					'attributes' => array(),
+				);
+				$image = theme('image', $variables);
+			}
+
+			$date = format_date(strtotime($n->field_date['und'][0]['value']), 'medium'); // @todo from to
+			$location = $n->field_event_location['und'][0]['locality'] . ' [' . $n->field_event_location['und'][0]['country'] . ']';
+			$output .= '
+			<li class="icon">
+				<h3>' . $title . '</h3>
+				<h4>' . $date . '</h4><p>' . $location . '</p>'
+				. $image
+				. $description .
+				'<p>' . l(t("Read more"), drupal_get_path_alias("node/" . $n->nid)) . '</p>
+			</li>';
+		}
   }
   $output .= '</ul>';
+	if($type == 'next'){
+		$output .= '<p>'.l(t('View also past events'), 'events').'</p>';
+	}
 
 	return array(
 		'#markup' => $output,
