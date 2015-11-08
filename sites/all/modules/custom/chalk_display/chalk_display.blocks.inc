@@ -220,8 +220,10 @@ function _chalk_display_events_teaser($type = 'next') {
 		}
   }
   $output .= '</ul>';
+	$output .= '<p>'.t('More events will be displayed later on. Patience is a virtue.').'</p>';
+
 	if($type == 'next'){
-		$output .= '<p>'.l(t('View also past events'), 'events').'</p>';
+		$output .= '<p>'.l(t('View past events'), 'events').'</p>';
 	}
 
 	return array(

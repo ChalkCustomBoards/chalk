@@ -96,7 +96,6 @@ Skateboard, longboard, surfboard, snowboard, kiteboard...<br>We never get fed up
                   <h2>Events</h2>
                   <!--<p>Meet CHALK</p>-->
                   <?php print render($page['front_three']); ?>
-                  <p>More Events will be displayed later on. Patience is a virtue.</p>
                 </header>
 
               </div>
