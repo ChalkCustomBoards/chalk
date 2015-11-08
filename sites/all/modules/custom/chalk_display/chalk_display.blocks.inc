@@ -109,14 +109,14 @@ function _chalk_display_artists_teaser() {
 
 	foreach($nodes as $n){
 		$variables = array(
-			'path' => image_style_url('artist_teaser', $n->field_banner['und'][0]['uri']),
-			'alt' => $n->field_banner['und'][0]['alt'],
-			'title' => $n->field_banner['und'][0]['alt'],
+			'path' => image_style_url('artist_teaser', $n->field_banner[LANGUAGE_NONE][0]['uri']),
+			'alt' => $n->field_banner[LANGUAGE_NONE][0]['alt'],
+			'title' => $n->field_banner[LANGUAGE_NONE][0]['alt'],
 			'attributes' => array(),
 		);
 		//dpm($n);
-		$description = truncate_utf8($n->body['und'][0]['safe_value'], 300, TRUE, TRUE);
-		//$description = text_summary($n->body['und'][0]['safe_value'], NULL, 600);
+		$description = truncate_utf8($n->body[LANGUAGE_NONE][0]['safe_value'], 300, TRUE, TRUE);
+		//$description = text_summary($n->body[LANGUAGE_NONE][0]['safe_value'], NULL, 600);
 		//$description = $n->field_speciality[LANGUAGE_NONE][0]['safe_value'];
 		$image = theme('image', $variables);
 		$title = $n->title_field[$language->language][0]['value'];
@@ -183,7 +183,7 @@ function _chalk_display_events_teaser($type = 'next') {
 		$date = new DateTime();
 		$now = $date->getTimestamp();
 		// @todo comparison should probably be done on end date as well for long events
-		$event_date = strtotime($n->field_date['und'][0]['value']);
+		$event_date = strtotime($n->field_date[LANGUAGE_NONE][0]['value']);
 		$is_past = $now > $event_date;
 		$display_event = TRUE;
 		if($type == 'next' && $is_past){
@@ -193,22 +193,22 @@ function _chalk_display_events_teaser($type = 'next') {
 		if($display_event) {
 			$title = $n->title_field[$language->language][0]['value'];
 			$description = '';
-			if (isset($n->body['und'][0]['safe_value'])) {
-				$description = truncate_utf8($n->body['und'][0]['safe_value'], 300, TRUE, TRUE);
+			if (isset($n->body[LANGUAGE_NONE][0]['safe_value'])) {
+				$description = truncate_utf8($n->body[LANGUAGE_NONE][0]['safe_value'], 300, TRUE, TRUE);
 			}
 
-			if(isset($n->field_image['und'][0]['uri'])) {
+			if(isset($n->field_image[LANGUAGE_NONE][0]['uri'])) {
 				$variables = array(
-					'path' => image_style_url('event_teaser', $n->field_image['und'][0]['uri']),
-					'alt' => $n->field_image['und'][0]['alt'],
-					'title' => $n->field_image['und'][0]['alt'],
+					'path' => image_style_url('event_teaser', $n->field_image[LANGUAGE_NONE][0]['uri']),
+					'alt' => $n->field_image[LANGUAGE_NONE][0]['alt'],
+					'title' => $n->field_image[LANGUAGE_NONE][0]['alt'],
 					'attributes' => array(),
 				);
 				$image = theme('image', $variables);
 			}
 
-			$date = format_date(strtotime($n->field_date['und'][0]['value']), 'medium'); // @todo from to
-			$location = $n->field_event_location['und'][0]['locality'] . ' [' . $n->field_event_location['und'][0]['country'] . ']';
+			$date = format_date(strtotime($n->field_date[LANGUAGE_NONE][0]['value']), 'medium'); // @todo from to
+			$location = $n->field_event_location[LANGUAGE_NONE][0]['locality'] . ' [' . $n->field_event_location[LANGUAGE_NONE][0]['country'] . ']';
 			$output .= '
 			<li class="icon">
 				<h3>' . $title . '</h3>
@@ -265,9 +265,9 @@ function _chalk_display_artists_teaser() {
 
 	foreach($nodes as $n){
 		$variables = array(
-			'path' => image_style_url('artist_teaser', $n->field_banner['und'][0]['uri']),
-			'alt' => $n->field_banner['und'][0]['alt'],
-			'title' => $n->field_banner['und'][0]['alt'],
+			'path' => image_style_url('artist_teaser', $n->field_banner[LANGUAGE_NONE][0]['uri']),
+			'alt' => $n->field_banner[LANGUAGE_NONE][0]['alt'],
+			'title' => $n->field_banner[LANGUAGE_NONE][0]['alt'],
 			'attributes' => array(),
 		);
 		$img = theme('image', $variables);
