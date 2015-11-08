@@ -16,7 +16,7 @@
 
 				<!-- Header -->
 					<header id="header" class="alt">
-              <h1><a href="index.html"><?php print $site_name; ?></a></h1>
+              <h1><a href="/"><?php print $site_name; ?></a></h1>
               <nav id="nav">
                 <ul>
                   <li class="special">
@@ -83,7 +83,7 @@
                 <li><a href="https://www.youtube.com/channel/UCkzRQhwlf39InmYu8WsRRRA" class="icon fa-youtube"><span class="label">YouTube</span></a></li>
               </ul>
               <ul class="copyright">
-                <li>&copy; Chalk Custom Boards</li><li><a href="https://en.wikipedia.org/wiki/Vulcan_salute">Live long and prosper</a></li>
+                <li>&copy; Chalk Custom Boards</li><li><a href="https://en.wikipedia.org/wiki/Vulcan_salute" target="_blank">Live long and prosper</a></li>
               </ul>
             </footer>
 
