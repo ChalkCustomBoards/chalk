@@ -20,6 +20,9 @@ features[] = comment_user_verification
 ;-------------- R E G I O N S -------------
 ;regions_hidden[] = im_a_hidden_but_visibel_for_a_module
 
+;-- Home Regions
+regions[hero] = Hero
+
 ;-- Required Regions
 regions[page_top] = Page Top
 regions[content] = Content
